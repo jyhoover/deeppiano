@@ -4,7 +4,8 @@ midi source: https://magenta.tensorflow.org/datasets/maestro
 import pandas as pd
 
 
-def pick_file(composer_dict, composer_num=33):
+def pick_file(composer_dict, composer_num=33,
+                projectpath='/content/drive/MyDrive/Colab_Notebooks/deeppiano/'):
     """
     pick the midi files of the chosen composer.
 
@@ -14,6 +15,8 @@ def pick_file(composer_dict, composer_num=33):
         A dictionary of {code: composer} pairs
     - composer_num:
         The code to designate a composer
+    - projectpath: string
+        Set up the path of the project. The default setting is for Google Colab.
 
     Returns:
     ========
@@ -21,7 +24,7 @@ def pick_file(composer_dict, composer_num=33):
         List of midi files' paths
     """
     dfmidi = pd.read_csv(
-        '/content/drive/MyDrive/Colab_Notebooks/deeppiano/maestro-v3.0.0/maestro-v3.0.0.csv')
+        projectpath + 'maestro-v3.0.0/maestro-v3.0.0.csv')
     # ['Alban Berg' 'Alexander Scriabin' 'Antonio Soler' 'Carl Maria von Weber'
     # 'Charles Gounod / Franz Liszt' 'Claude Debussy' 'César Franck'
     # 'Domenico Scarlatti' 'Edvard Grieg' 'Felix Mendelssohn'
@@ -58,5 +61,5 @@ def pick_file(composer_dict, composer_num=33):
     result = dfmidi[[composer_dict[composer_num]
                      in c for c in dfmidi.canonical_composer]].midi_filename.tolist()
     list_all_midi = [
-        '/content/drive/MyDrive/Colab_Notebooks/deeppiano/maestro-v3.0.0/' + r for r in result]
+        projectpath + 'maestro-v3.0.0/' + r for r in result]
     return list_all_midi

@@ -126,6 +126,11 @@ def process_notes_in_song(dict_time_notes):
         A list with len of batch_song (16), each element is a dict
         Each dict has keys (timestep numbers: 30,31,35,...) vs.
         values (note arrays, e.g. array([36, 48, 60])
+        such as {5: array([36, 48, 60]),
+                 6: array([36, 48, 60]),
+                 7: array([36, 39, 48, 51, 60, 63]),
+                 12: array([51, 63, 75]),
+                 17: array([79]),...}
     """
     list_of_dict_keys_time = []
 
@@ -152,6 +157,11 @@ def tokenize_note(list_of_dict_time_notestr):
         A list with len of batch_song (16), each element is a dict
         Each dict has keys (timestep numbers: 30,31,35,...) vs.
         values (note arrays, e.g. array([36, 48, 60])
+        such as {5: array([36, 48, 60]),
+                 6: array([36, 48, 60]),
+                 7: array([36, 39, 48, 51, 60, 63]),
+                 12: array([51, 63, 75]),
+                 17: array([79]),...}
 
     Returns
     =======

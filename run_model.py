@@ -14,7 +14,8 @@ from tensorflow.keras.utils import to_categorical
 
 def main_run(random_song, random_trim, composer_num,
                 fs, seq_len, batch_music, n_a, epochs,
-                opt, print_note=False):
+                opt, print_note=False,
+                projectpath='/content/drive/MyDrive/Colab_Notebooks/deeppiano/'):
     """
     'main_run' integrates all major precedures.
 
@@ -41,7 +42,8 @@ def main_run(random_song, random_trim, composer_num,
         a tensorflow optimizer
     - print_note: bool
         If print the music notes. Only for the purposes of testing
-
+    - projectpath: string
+        Set up the path of the project. The default setting is for Google Colab.
 
     Returns:
     ========
@@ -59,7 +61,7 @@ def main_run(random_song, random_trim, composer_num,
     preprocess.generate_samples(list_all_midi,batch_music=batch_music,fs=fs,
     seq_len=seq_len,use_tqdm=False,random_song=random_song,random_trim=random_trim)
     # file name
-    filename1 = '''/content/drive/MyDrive/Colab_Notebooks/deeppiano/result/result_'''
+    filename1 = projectpath + '''result/result_'''
     filename2 = '''composer({})-fs({})-seq_len({})-batch_music({})-random_song({})
                     -random_trim({})-na({})-epochs({})-'''.format(
                                             composer_dict[int(composer_num)],

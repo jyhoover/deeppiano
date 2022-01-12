@@ -8,3 +8,7 @@
 2. To train the model, run `deep_piano_console.ipynb`. A suggested platform is Google Colab. There are parameters that can be adjusted. Results will be saved under `result/`
 
 - To hear some result samples: https://colab.research.google.com/drive/1gI3iv6mjKMpgCFlY_P7xpWA55VAKVZ3k?usp=sharing
+
+Reference:
+Some codes are adapted from Ji-Sung Kim's project 'deepjazz', https://github.com/jisungk/deepjazz and Andrew Ng's Sequence Models class,
+https://www.coursera.org/learn/nlp-sequence-models.
